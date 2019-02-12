@@ -74,4 +74,111 @@ QUnit.module('Тестируем функцию zip', function () {
 		};
 		assert.deepEqual(zip({name: 'age'}, {value: 42}, {name: 'cost'}, {value: -6}), obj);
 	});
+
+
+	QUnit.test('Функция правильно работает с аналогичными свойствами, но другими значениями', function (assert) {
+		assert.deepEqual(zip({answer: 155}, {answer: "EAST IS UP"}), {answer: 155});
+		assert.deepEqual(zip({kids: 0}, {kids: -4}, {kids: 22}), {kids: 0});
+
+		const obj = {
+			name: 'Anton',
+			age: 22
+		};
+
+		const obj2 = {
+			name: 'Tony',
+			age: 202
+		};
+		assert.deepEqual(zip(obj, obj2), obj);
+	});
+
+	QUnit.test('Очень длинный тест, но бестолковый', function (assert) {
+
+
+		const obj = {
+			name: 'Anton',
+			age: 22
+		};
+
+		const obj2 = {
+			name: 'Tony',
+			age: 202
+		};
+
+		assert.deepEqual(zip(obj, obj2), obj);
+
+		const obj3 = {
+			name: 'Peter',
+			age: 101
+		};
+
+		assert.deepEqual(zip(obj2, obj3), obj2);
+
+		const obj4 = {
+			name: 'Fara',
+			age: 2020
+		};
+
+		assert.deepEqual(zip(obj3, obj4), obj3);
+
+		const obj5 = {
+			name: 'Hex',
+			age: 20228
+		};
+
+		assert.deepEqual(zip(obj4, obj, obj5), obj4);
+
+		const obj6 = {
+			name: 'To000ny',
+			age: 2042
+		};
+
+		assert.deepEqual(zip(obj, obj2, obj5, obj6, obj3), obj);
+
+		const obj7 = {
+			name: 'Oleg',
+			age: 1
+		};
+
+		const obj8 = {
+			name: 'Vova',
+			age: 228
+		};
+
+		const obj9 = {
+			name: 'Oxxxy',
+			age: 32
+		};
+
+		const obj10 = {
+			name: 'Scriptonit',
+			age: 28
+		};
+
+		assert.deepEqual(zip(obj10, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj), obj10);
+
+
+		const obj11 = {
+			name: 'Kendrick',
+			age: 30
+		};
+
+		assert.deepEqual(zip(obj11, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj), obj11);
+
+		const obj12 = {
+			name: 'Tove Lo',
+			age: 29
+		};
+
+		assert.deepEqual(zip(obj12, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj), obj12);
+
+		const obj13 = {
+			name: '',
+			age: 202
+		};
+
+		assert.deepEqual(zip(obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12, obj13), obj);
+	});
+
 });
+
