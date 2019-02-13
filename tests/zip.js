@@ -180,5 +180,14 @@ QUnit.module('Тестируем функцию zip', function () {
 		assert.deepEqual(zip(obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12, obj13), obj);
 	});
 
+	QUnit.test('Функция работает правильно с пустым набором аргументов', function (assert) {
+		assert.deepEqual(zip() , {});
+	});
+
+	QUnit.test('Функция работает выводит сообщение об ошибке типов при разном наборе типов аргументов', function (assert) {
+		assert.deepEqual(zip('My string') , 'Type error');
+		assert.deepEqual(zip(1337) , 'Type error');
+	});
+
 });
 
