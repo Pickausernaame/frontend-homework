@@ -75,7 +75,6 @@ QUnit.module('Тестируем функцию zip', function () {
 		assert.deepEqual(zip({name: 'age'}, {value: 42}, {name: 'cost'}, {value: -6}), obj);
 	});
 
-
 	QUnit.test('Функция правильно работает с аналогичными свойствами, но другими значениями', function (assert) {
 		assert.deepEqual(zip({answer: 155}, {answer: "EAST IS UP"}), {answer: 155});
 		assert.deepEqual(zip({kids: 0}, {kids: -4}, {kids: 22}), {kids: 0});
@@ -92,8 +91,7 @@ QUnit.module('Тестируем функцию zip', function () {
 		assert.deepEqual(zip(obj, obj2), obj);
 	});
 
-	QUnit.test('Очень длинный тест, но бестолковый', function (assert) {
-
+	QUnit.test('Просто очень длинный тест;)', function (assert) {
 
 		const obj = {
 			name: 'Anton',
@@ -178,6 +176,8 @@ QUnit.module('Тестируем функцию zip', function () {
 		};
 
 		assert.deepEqual(zip(obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12, obj13), obj);
+
+
 	});
 
 	QUnit.test('Функция работает правильно с пустым набором аргументов', function (assert) {
@@ -185,9 +185,8 @@ QUnit.module('Тестируем функцию zip', function () {
 	});
 
 	QUnit.test('Функция работает выводит сообщение об ошибке типов при разном наборе типов аргументов', function (assert) {
-		assert.deepEqual(zip('My string') , 'Type error');
-		assert.deepEqual(zip(1337) , 'Type error');
+		assert.deepEqual(zip('My string') , {});
+		assert.deepEqual(zip(1337) , {});
 	});
 
 });
-
