@@ -16,5 +16,5 @@
 
 
 const zip = (...args) => args.reduce((res, cur) => {
-    return (typeof cur == "object") ? Object.assign(cur, res) : {}
+    return (typeof cur === "object") ? Object.assign(cur, res) : {}
     }, {});
